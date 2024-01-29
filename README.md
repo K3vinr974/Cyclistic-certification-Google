@@ -26,7 +26,9 @@ Les données sont stockées en ligne. Elle sont au nombre de 12 fichier .csv, un
 
 # Nettoyer
 Je creer un nouveau projet que je nomme ..... et un nouvelle ensemble de données que je nomme .....
-'' 
+''r
+Create Table 
+''
 
 # Analyser
 
