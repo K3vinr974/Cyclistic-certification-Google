@@ -27,7 +27,7 @@ Les données sont stockées en ligne. Elle sont au nombre de 12 fichier .csv, un
 
 Après vérification que toutes les colonnes correspondent entre les différents fichiers je constate qu'il y a des champs manquant sur certaines lignes pour les champs start_station_name et end_station_name. 
 
-Un nettoyage puis un contrôle de donnée sera nécessaire afin de garantir une base de donnée ROCCC. Je rajoute deux colonnes afin de pouvoir faire mon analyse par la suite: une première qui calcul le temps de la location et une seconde me permettant d'avoir le jour de la semaine correspondant au jour de la location.
+Un nettoyage puis un contrôle de donnée sera nécessaire afin de garantir une base de donnée ROCCC. Je rajoute trois colonnes afin de pouvoir faire mon analyse par la suite: une première qui calcul le temps de la location et une seconde me permettant d'avoir le jour de la semaine correspondant au jour de la location. La troisième colonne me permet de faire le rapprochement du jour en toute lettre.
 
 Je reconvertie mes fichiers en .csv afin de les transférer sur BigQuery pour un nettoyage et une analyse plus approfondie. 
 
@@ -84,3 +84,19 @@ Je vous joins les liens vers mes visuels Tableau et ma présentation.
 
 
 # Actionner
+
+Suite à ma publication je peux donner plusieurs recommandations afin de permettre d'accroître le nombre de clients abonnés.
+
+* Créer une période d'abonnement sur la période....
+
+* Créer un abonnement hebdomadaire du ... au ...
+
+* Créer un abonnement spécifique pour les stations .... qui sont les stations les plus frequenté du réseau de Cyclistic.
+
+* Créer un abonnement suivant un temps d'utilisation journalier
+
+* Combiner plusieurs des précédentes recommandations
+
+
+# Conclusion
+Cette presentation terminé, un suivi des résultats sera nécessaire pour connaître l'impact du ou des recommandations appliqué.
