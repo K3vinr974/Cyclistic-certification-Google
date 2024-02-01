@@ -1,4 +1,4 @@
-de# Cyclistic-certification-Google
+# Cyclistic-certification-Google
 Analyse Capstone Google Data Analytics Certification
 
 Ce dépot contient mon analyse d'un projet proposé pour valider mon certificat de Data Analyst.
@@ -49,10 +49,17 @@ Des temps de location de plus de ... jours ressorte. Afin de pouvoir analyser un
 
 
 Une fois le nettoyage effectuer je peux garantir que mes données sont ROCCC:
-* 1
-* 2
-* 3
-* 4
+* 1 Fiable
+Les données proviennent de la societé Cyclistic
+* 2 Original
+Les donnée on été relevé par la société Cyclistic
+* 3 Complet
+le jeu de donnée est sans erreur de saisie ou valeur nulle
+* 4 Actuel
+Le jeu de donnée provient de l'année 2023,année la plus récente disponible.
+* 5 Cité
+Les jeux de données original peuvent être disponible depuis ce dépôt : ....
+
 
 # Analyser
 
