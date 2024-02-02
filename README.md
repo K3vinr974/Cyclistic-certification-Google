@@ -16,10 +16,29 @@ Je vous joins ma partie data (nettoyage, analyse) en SQL (BigQuery) ainsi qu'une
 
 
 # Présentation du projet
--> A COMPLETER
+## Scénario
+Vous êtes un analyste de données junior travaillant dans l'équipe d'analystes marketing de Cyclistic, une société de vélos en libre-service à Chicago. Le directeur du marketing estime que le succès futur de l'entreprise dépend de la maximisation du nombre d'adhésions annuelles. Par conséquent, votre équipe veut comprendre comment les cyclistes occasionnels et les membres annuels utilisent les vélos Cyclistic de manière diﬀérente. À partir de ces informations, votre équipe concevra une nouvelle stratégie marketing pour convertir les usagers occasionnels en membres annuels. Mais d’abord, les dirigeants de Cyclistic doivent approuver vos recommandations, qui doivent donc être étayées par des aperçus de données convaincants et des visualisations de données professionnelles.
+
+## Personnages et équipes
+* Cyclistic
+* Équipe d'analytique marketing Cyclistic 
+* Équipe de direction Cyclistic 
+* Lily Moreno : La directrice du marketing 
 
 # Demander
--> A COMPLETER
+Trois questions guideront le futur programme de marketing :
+1.	Quelles sont les différences d’utilisation des vélos Cyclistic entre les membres annuels et les cyclistes occasionnels ?
+2.	Pourquoi les cyclistes occasionnels achèteraient-ils des abonnements annuels à Cyclistic ?
+3.	Comment Cyclistic peut-elle utiliser les médias numériques pour inﬂuencer les cyclistes occasionnels à devenir membres ?
+ 
+Lily Moreno vous a assigné la première question à laquelle vous devez répondre : Quelles sont les différences d’utilisation des vélos Cyclistic entre les membres annuels et les cyclistes occasionnels ?
+
+Plusieurs hypothèses peuvent être étudiés: 
+* Il y a t'il des jours ou période de l'année ou l'utilisation du service est le plus solicité?
+* Il y a t'il des stations très frequenté?
+* Il y a t'il un type de vélo plus utilisé qu'un autre?
+* Le temps d'utilisation differencie t'il le type d'utilisateur?
+
 
 # Préparer
 
@@ -57,20 +76,96 @@ Je reconvertie mes fichiers en .csv afin de les transférer sur BigQuery pour un
 
 # Nettoyer
 
-Je créer un nouveau projet que je nomme ..... et un nouvelle ensemble de données que je nomme ......
--> image depot bigquery
-
-Je créé une table pour chaque fichier .csv en les nommant Janvier_23, Decembre_23. 
+Je créer un nouveau projet que je nomme cyclistic-413112 et un nouvelle ensemble de données que je nomme cyclistique_2023
+Je créé une table pour chaque fichier .csv en les nommant janvier_23 jusqu'à decembre_23. 
 -> image table
 
 Je créer ensuite une table permettant de joindre toute les tables et la nomme Annee_23.
--> image table jointe + requete jointure
+``` sql
+create table 
+`cyclistic-413112.cyclistique_2023.annuel_2023`
+AS
+  SELECT started_at, ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.janvier_2023`
+  UNION ALL
 
-Je commence à supprimer toute les lignes où il y a des valeurs null pour les champs start_station_name et end_station_name. 
--> requete suppression
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.fevrier_2023`
+  UNION ALL
 
-Afin d'avoir des données representatif des utilisatuers je supprime les locations trop longue ( + 24h) et les locations trop courte ( - 5 minutes)
--> requete suppression
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.mars_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.avril_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.mai_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.juin_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.juillet_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.aout_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.septembre_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.octobre_2023`
+  UNION ALL 
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.novembre_2023`
+  UNION ALL
+
+  SELECT started_at,ended_at, start_station_name, start_station_id, end_station_name, end_station_id, start_lat, start_lng, end_lat, end_lng, member_casual, day_of_week_2, day_of_week
+  FROM `cyclistique_2023.decembre_2023`
+```
+
+Je commence à supprimer toute les lignes où il y a des valeurs null pour les champs start_station_name, end_station_name, start_lat, start_lng, end_lat et end_lng. 
+```sql
+DELETE FROM `cyclistic-413112.cyclistique_2023.annuel_2023`
+WHERE start_station_name IS NULL
+OR end_station_name IS NULL
+OR end_lat IS NULL
+OR end_lng IS NULL
+OR start_lat IS NULL
+OR start_lng IS NULL;
+```
+
+Afin d'avoir des données representatif des utilisatuers je supprime les locations trop longue ( + 24h) et les locations trop courte ( - 1 minutes)
+```sql
+DELETE FROM `cyclistic-413112.cyclistique_2023.annuel_2023`
+WHERE TIMESTAMP_DIFF( started_at,ended_at, SECOND) > 86400 -- 24 heures en secondes
+   OR TIMESTAMP_DIFF(ended_at, started_at, SECOND) < 60; -- Durée négative
+```
+
+Je recré une colonne ride_length depuis BigQuery car lors de la jointure des tables j'ai eu une erreur car certaine de mes tables n'ont pas formaté correctement la colonne.
+```sql
+CREATE OR REPLACE TABLE `cyclistic-413112.cyclistique_2023.annuel_2023` AS
+SELECT
+  *,
+  STRING(
+    TIME(
+      TIMESTAMP_DIFF(ended_at, started_at, HOUR), 
+      MOD(TIMESTAMP_DIFF(ended_at, started_at, MINUTE), 60), 
+      MOD(TIMESTAMP_DIFF(ended_at, started_at, SECOND), 60)
+    )
+  ) AS ride_length
+FROM
+  `cyclistic-413112.cyclistique_2023.annuel_2023`;
+```
 
 Une fois le nettoyage effectuer je peux garantir que mes données sont ROCCC:
 * Fiable: 
@@ -83,7 +178,8 @@ le jeu de donnée est sans erreur de saisie ou valeur nulle
 Le jeu de donnée provient de l'année 2023, année la plus récente disponible.
 * Cité: 
 Les jeux de données originals peuvent être disponible depuis ce dépôt :
-![Capture d'écran depot_archive](https://github.com/K3vinr974/Cyclistic-certification-Google/assets/154596716/d27fe668-0b74-4982-96f4-92792c584731)
+![Capture d'écran 2024-02-02 102854](https://github.com/K3vinr974/Cyclistic-certification-Google/assets/154596716/32e2e257-517b-41a4-bfd6-c2a66b650ebc)
+
 
 
 # Analyser
