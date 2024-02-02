@@ -24,7 +24,10 @@ Je vous joins ma partie data (nettoyage, analyse) en SQL (BigQuery) ainsi qu'une
 # Préparer
 
 Les données sont stockées en ligne. Elle sont au nombre de 12 fichier .csv, un pour chaque mois. Une conversion en format Excel et une première lecture des différent fichier me permet de voir l'architecture de ces données. Le nombre de ligne étant conséquent, je ne pourrais pas faire tout mon travail sur Excel et je vais devoir utiliser la plateforme BigQuery (SQL) ou Rstudio (R) pour pouvoir traiter tout ce jeu donnée. Mon choix se portera sur BigQuery et une visualisation sur Tableau.
+```
+![Capture d'écran 2024-02-02 102845](https://github.com/K3vinr974/Cyclistic-certification-Google/assets/154596716/b7c263e0-7bde-4fb1-b9df-1092d1e61ca8)
 
+```
 Après vérification que toutes les colonnes correspondent entre les différents fichiers je constate qu'il y a des champs manquant sur certaines lignes pour les champs start_station_name et end_station_name. 
 
 Un nettoyage puis un contrôle de donnée sera nécessaire afin de garantir une base de donnée ROCCC. Je rajoute trois colonnes afin de pouvoir faire mon analyse par la suite: une première qui calcul le temps de la location et une seconde me permettant d'avoir le jour de la semaine correspondant au jour de la location. La troisième colonne me permet de faire le rapprochement du jour en toute lettre.
