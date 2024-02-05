@@ -35,7 +35,7 @@ Lily Moreno vous a assigné la première question à laquelle vous devez répond
 
 Plusieurs hypothèses peuvent être étudiés: 
 * Il y a t'il des jours ou période de l'année ou l'utilisation du service est le plus solicité?
-* Il y a t'il des stations très frequenté?
+* Il y a t'il des stations très frequenté pour uun type particulier?
 * Il y a t'il un type de vélo plus utilisé qu'un autre?
 * Le temps d'utilisation differencie t'il le type d'utilisateur?
 
@@ -78,7 +78,6 @@ Je reconvertie mes fichiers en .csv afin de les transférer sur BigQuery pour un
 
 Je créer un nouveau projet que je nomme cyclistic-413112 et un nouvelle ensemble de données que je nomme cyclistique_2023
 Je créé une table pour chaque fichier .csv en les nommant janvier_23 jusqu'à decembre_23. 
--> image table
 
 Je créer ensuite une table permettant de joindre toute les tables et la nomme Annee_23.
 ``` sql
@@ -147,11 +146,11 @@ OR start_lng IS NULL;
 Afin d'avoir des données representatif des utilisatuers je supprime les locations trop longue ( + 24h) et les locations trop courte ( - 1 minutes)
 ```sql
 DELETE FROM `cyclistic-413112.cyclistique_2023.annuel_2023`
-WHERE TIMESTAMP_DIFF( started_at,ended_at, SECOND) > 86400 -- 24 heures en secondes
-   OR TIMESTAMP_DIFF(ended_at, started_at, SECOND) < 60; -- Durée négative
+WHERE TIMESTAMP_DIFF( started_at,ended_at, SECOND) >= 86400 -- 24 heures en secondes
+   OR TIMESTAMP_DIFF(ended_at, started_at, SECOND) <= 60; -- Durée négative
 ```
 
-Je recré une colonne ride_length depuis BigQuery car lors de la jointure des tables j'ai eu une erreur car certaine de mes tables n'ont pas formaté correctement la colonne.
+Je recré une colonne ride_length depuis BigQuery car lors de la jointure des tables j'ai eu une erreur pour calculer deouis la colonne ride_lebgth car certaine de mes tables n'ont pas été formaté correctement par Bigquery pour cette colonne.
 ```sql
 CREATE OR REPLACE TABLE `cyclistic-413112.cyclistique_2023.annuel_2023` AS
 SELECT
@@ -180,28 +179,25 @@ Le jeu de donnée provient de l'année 2023, année la plus récente disponible.
 Les jeux de données originals peuvent être disponible depuis ce dépôt :
 ![Capture d'écran 2024-02-02 102854](https://github.com/K3vinr974/Cyclistic-certification-Google/assets/154596716/32e2e257-517b-41a4-bfd6-c2a66b650ebc)
 
-
+Afin d'avoir des premieres visualisation et déterminer plus facilement les tendances et differences entre les membres et les occasionels, je transfère la base de donnée sur Tableau et commence mes premiers visuels.
 
 # Analyser
 
-Je commence par analyser le nombre d'utilisateurs occasionnel (casual) et le nombre d'utilisateurs abonnée (member). 
--> requete 
+Je creer un visuel pour analyser le nombre d'utilisateurs occasionnel (casual) et le nombre d'utilisateurs abonnée (member). 
+![repartition](https://github.com/K3vinr974/Cyclistic-certification-Google/assets/154596716/3d604ce7-b59d-49d4-97b2-a5594241a6f0)
 
-Je classe également les jours d'utilisation les plus fréquent par type d'utilisateur.
--> requete 
+Je créé un autre visuel pour les jours d'utilisation les plus fréquent par type d'utilisateur.
+![jours](https://github.com/K3vinr974/Cyclistic-certification-Google/assets/154596716/f47ea621-ecde-4127-a2b6-e4fcf986bce7)
 
-Je calcul le nombre de location de vélo par type de vélo et type d'utilisateur.
--> requete 
+Apres avoir travailler mes visuels et leur présentation je decide de les publier sur la plateforme Tableau
 
-Afin d'avoir des premieres visualisation et déterminer plus facilement les tendances de location entre les membres et les occasionels, je transfère la base de donnée sur Tableau et commence mes premiers visuels.
--> requete transfer json
--> process Tableau
+https://public.tableau.com/app/profile/kevin.richefeu/viz/Classeurcyclistic/Histoire1
 
-Je décide donc de publier mon analyse.
+Je créer ma presentation et décide donc de publier mon analyse.
 
 # Publier
 
-Je vous joins les liens vers mes visuels Tableau et ma présentation.
+Je vous joins les liens vers ma présentation.
 
 -> lien analyse
 
@@ -209,16 +205,16 @@ Je vous joins les liens vers mes visuels Tableau et ma présentation.
 
 Suite à ma publication je peux donner plusieurs recommandations afin de permettre d'accroître le nombre de clients abonnés.
 
-* Créer une période d'abonnement sur la période....
+* Créer une période d'abonnement sur la période Avril à Octobre.
 
-* Créer un abonnement hebdomadaire du ... au ...
+* Créer un abonnement spécifique pour les stations en centre ville qui sont les stations les plus frequentés du réseau de Cyclistic.
 
-* Créer un abonnement spécifique pour les stations .... qui sont les stations les plus frequenté du réseau de Cyclistic.
+* Créer un abonnement suivant un temps d'utilisation journalier entre 10h et 19h.
 
-* Créer un abonnement suivant un temps d'utilisation journalier
+* Créer un abonnement weekend.
 
 * Combiner plusieurs des précédentes recommandations
 
 
 # Conclusion
-Cette presentation terminé, un suivi des résultats sera nécessaire pour connaître l'impact du ou des recommandations appliqué.
+Cette presentation terminé, un suivi des résultats sera nécessaire pour connaître l'impact de la ou des recommandations appliqués.
