@@ -189,7 +189,7 @@ Je creer un visuel pour analyser le nombre d'utilisateurs occasionnel (casual) e
 Je créé un autre visuel pour les jours d'utilisation les plus fréquent par type d'utilisateur.
 ![jours](https://github.com/K3vinr974/Cyclistic-certification-Google/assets/154596716/f47ea621-ecde-4127-a2b6-e4fcf986bce7)
 
-Apres avoir travailler mes visuels et leur présentation je decide de les publier sur la plateforme Tableau
+Apres avoir travaillé mes visuels et leur présentations je decide de les publier sur la plateforme Tableau
 
 https://public.tableau.com/app/profile/kevin.richefeu/viz/Classeurcyclistic/Histoire1
 
