@@ -199,7 +199,8 @@ Je créer ma presentation et décide donc de publier mon analyse.
 
 Je vous joins les liens vers ma présentation.
 
-[ lien analyse](https://github.com/K3vinr974/Cyclistic-certification-Google/blob/main/Pr%C3%A9sentation.pdf)
+[Présentation.pdf](https://github.com/K3vinr974/Cyclistic-certification-Google/files/14168883/Presentation.pdf)
+
 
 # Actionner
 
@@ -209,7 +210,7 @@ Suite à ma publication je peux donner plusieurs recommandations afin de permett
 
 * Créer un abonnement spécifique pour les stations en centre ville qui sont les stations les plus frequentés du réseau de Cyclistic.
 
-* Créer un abonnement suivant un temps d'utilisation journalier entre 10h et 19h.
+* Créer un abonnement suivant un temps d'utilisation journalier entre 09h et 19h.
 
 * Créer un abonnement weekend.
 
